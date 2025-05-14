@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=0.2">
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Prior Depth Anything">
+  <meta name="keywords" content="Prior-based Monocular Depth Estimation">
+  <title>Prior Depth Anything</title>
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+
+
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Logo.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> Depth Anything with Any Prior</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://zehanwang01.github.io/">Zehan Wang</a><sup>1*</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="">Siyu Chen</a><sup>1*</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://liheyoung.github.io/">Lihe Yang</a><sup>2</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp  
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="">Jialei Wang</a><sup>1</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=DptGMnYAAAAJ&hl=en&oi=ao">Ziang Zhang</a><sup>1</sup></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+            <span class="author-block">
+              <a href="https://hszhao.github.io/">Hengshuang Zhao</a><sup>2</sup>  
+            </span>
+            <span class="author-block">
+              <a href="https://mypage.zju.edu.cn/zhaozhou">Zhou Zhao</a></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ZJU</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp </span>
+            <span class="author-block"><sup>2</sup>HKU</span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block">* Equal Contribution</span></a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp</a>&nbsp
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Demo</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section" style="background-color:#efeff081"> -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This work presents Prior Depth Anything, a framework that combines incomplete but precise metric information in depth measurement with relative but complete geometric structures in depth prediction, generating accurate, dense, and detailed metric depth maps for any scene. To this end, we design a coarse-to-fine pipeline to progressively integrate the two complementary depth sources. First, we introduce pixel-level metric alignment and distance-aware weighting to pre-fill diverse metric priors by explicitly using depth prediction. It effectively narrows the domain gap between prior patterns, enhancing generalization across varying scenarios. Second, we develop a conditioned monocular depth estimation (MDE) model to refine the inherent noise of depth priors. By conditioning on the normalized pre-filled prior and prediction, the model further implicitly merges the two complementary depth sources. Our model showcases impressive zero-shot generalization across depth completion, super-resolution, and inpainting over 7 real-world datasets, matching or even surpassing previous task-specific methods. More importantly, it performs well on challenging, unseen mixed priors and enables test-time improvements by switching prediction models, providing a flexible accuracy-efficiency trade-off while evolving with advancements in MDE models
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Core Motivation</h2>
+          <div class="content has-text-justified">
+            <p>
+              We progressively integrate complementary information from metric measurements (accurate metrics) and relative predictions (completeness and fine details) to produce dense and fine-grained metric depth maps.
+            </p>
+          </div>
+
+          <div class="image-area">
+            <img src="./vis/motivation.png" alt="motivation" width="80%" class="center">
+          </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Applicable Scenarios</h2>
+          <div class="content has-text-justified">
+            <p>
+              Applicable scenarios of current prior-based monocular depth estimation models. SfM: sparse matching points from SfM, LiDAR: sparse LiDAR line patterns, Extreme: extremely sparse points (100 points), Range: missing depth within a specific range, Shape: missing regular-shaped areas, Object: missing depth of an object.
+            </p>
+          </div>
+
+          <div class="image-area">
+            <img src="./vis/patterns.png" alt="pipeline" width="80%" class="center">
+          </div>
+</section>
+
+<section class="section"  style="margin-top: 0; padding-top: 50px;">
+  <h2 class="title is-4" style="text-align: center;">Refinement of Real-World Metric-Mesurements</h2>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <p>
+         Taking an RGB image(1st colomn), and its corresponding Ground-Truth measurement (2nd column), our model can effectively correct the noise and in labels, fill the vacant areas and output the depth map (3rd column) that is detailed, complete, and metrically precise. These <b>"beyond ground truth"</b> cases highlight the potential of our approach in addressing the inherent noise in depth measurement techniques.
+        </p><br>
+
+        <head>
+        <div class="columns is-centered has-text-centered">
+        <title>one line</title>
+        <style>
+          .gif-container img {
+            display: inline-block;
+            margin-left: 20px;
+            margin-right: auto;
+            width: 288px;
+            height: 216px;
+          }
+          .gif-container {
+            white-space: nowrap;
+            overflow-x: auto;
+          }
+        </style>
+        </div>
+        </head>
+
+        <div class="gif-container">
+          <img src="./vis/gifs/bedroom_0090_rgb.gif" alt="bedroom_0090_rgb">
+          <img src="./vis/gifs/bedroom_0090_gt.gif" alt="bedroom_0090_gt">
+          <img src="./vis/gifs/bedroom_0090_pred.gif" alt="bedroom_0090_pred">
+        </div>
+        
+        <div class="gif-container">
+          <img src="./vis/gifs/computer_lab_0002_rgb.gif" alt="computer_lab_0002_rgb">
+          <img src="./vis/gifs/computer_lab_0002_gt.gif" alt="computer_lab_0002_gt">
+          <img src="./vis/gifs/computer_lab_0002_pred.gif" alt="computer_lab_0002_pred">
+        </div>
+        
+        <div class="gif-container">
+          <img src="./vis/gifs/kitchen_0029_rgb.gif" alt="kitchen_0029_rgb">
+          <img src="./vis/gifs/kitchen_0029_gt.gif" alt="kitchen_0029_gt">
+          <img src="./vis/gifs/kitchen_0029_pred.gif" alt="kitchen_0029_pred">
+        </div>
+
+        <div class="gif-container">
+          <img src="./vis/gifs/scene0111_02_rgb.gif" alt="scene0111_02_rgb">
+          <img src="./vis/gifs/scene0111_02_gt.gif" alt="scene0111_02_gt">
+          <img src="./vis/gifs/scene0111_02_pred.gif" alt="scene0111_02_pred">
+        </div>
+
+        <div class="gif-container">
+          <img src="./vis/gifs/scene0803_00_rgb.gif" alt="scene0803_00_rgb">
+          <img src="./vis/gifs/scene0803_00_gt.gif" alt="scene0803_00_gt">
+          <img src="./vis/gifs/scene0803_00_pred.gif" alt="scene0803_00_pred">
+        </div>
+
+        <div class="gif-container">
+          <img src="./vis/gifs/study_room_0004_rgb.gif" alt="study_room_0004_rgb">
+          <img src="./vis/gifs/study_room_0004_gt.gif" alt="study_room_0004_gt">
+          <img src="./vis/gifs/study_room_0004_pred.gif" alt="study_room_0004_pred">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+
+    <div class="hero-body">
+      <img id="comparison" width="100%" src="./vis/comparison.jpg"/>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Framework</h2>
+        <div class="content has-text-justified">
+          <p>
+            Considering RGB images, any form of depth prior D<sub>prior</sub>, and relative prediction D<sub>pred</sub> from a frozen MDE model, coarse metric alignment first explicitly combines the <b>metric data</b> in D<sub>prior</sub> and <b>geometry structure</b> in D<sub>pred</sub> to fill the incomplete areas in D<sub>prior</sub>. Fine structure refinement implicitly merges the complementary information to produce the final metric depth map.
+          </p>
+        </div>
+        <div class="image-area">
+          <img src="./vis/pipeline.png" alt="pipeline" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4" style="text-align: center;">Zero-Shot Depth Estimation with Mixed Prior</h2>
+        <div class="content has-text-justified">
+          <p>
+            In real-world scenarios, different depth priors (e.g. sparse points, low-resolution, etc.) often coexist. Handing these mixed priors is vital for practical applications. We show the quantitative results of our model on the mixed priors to simulate more complex scenarios. 
+            All results are reported in AbsRel&darr;. "S": extremely sparse points (100 points), "L": "x16" in low-esolution, "M": missing square areas of 160x160. We highlight <b>Best</b>, <u>second best</u> results. "Depth Pro+ViT-B" indicates the frozen MDE and conditioned MDE. DAv2-B: Depth Anything v2 ViT-B, SDv2: Stable Diffusion v2.
+          </p>
+        </div>
+        <div class="image-area">
+          <img src="./vis/mixed.png" alt="mixed_area" width="100%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pt-0" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-4">Citation</h2>
+    <pre class="selectable"><code>@article{prior_depth_anything,
+  title={Depth Anything with Any Prior},
+  author={Zehan Wang, Siyu Chen, Lihe Yang, Jialei Wang, Ziang Zhang, Hengshuang Zhao, Zhou Zhao},
+  journal={},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2406.09414">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/DepthAnything/Depth-Anything-V2" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="content">
+        <p>
+          The template is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
