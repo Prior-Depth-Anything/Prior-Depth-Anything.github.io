@@ -5,7 +5,7 @@ This is the repository that contains source code for the webpage of Depth Anythi
 If you find our work useful, please cite:
 ```bibtex
 @article{prior_depth_anything,
-      title={Prior Depth Anything},
+      title={Depth Anything with Any Prior},
       author={Zehan Wang, Siyu Chen, Lihe Yang, Jialei Wang, Ziang Zhang, Hengshuang Zhao, Zhou Zhao},
       journal={},
       year={2025}
