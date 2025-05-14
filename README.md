@@ -1,4 +1,4 @@
-# Depth Anything V2
+# Prior Depth Anything
 
 This is the repository that contains source code for the webpage of Depth Anything with Any Prior.
 
