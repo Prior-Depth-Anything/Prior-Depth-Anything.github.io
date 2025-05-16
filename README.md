@@ -4,11 +4,14 @@ This is the repository that contains source code for the webpage of Depth Anythi
 
 If you find our work useful, please cite:
 ```bibtex
-@article{prior_depth_anything,
-      title={Depth Anything with Any Prior},
-      author={Zehan Wang, Siyu Chen, Lihe Yang, Jialei Wang, Ziang Zhang, Hengshuang Zhao, Zhou Zhao},
-      journal={},
-      year={2025}
+@misc{wang2025depthprior,
+      title={Depth Anything with Any Prior}, 
+      author={Zehan Wang and Siyu Chen and Lihe Yang and Jialei Wang and Ziang Zhang and Hengshuang Zhao and Zhou Zhao},
+      year={2025},
+      eprint={2505.10565},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2505.10565}, 
 }
 
 ```
